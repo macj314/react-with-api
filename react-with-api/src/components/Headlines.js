@@ -10,10 +10,6 @@ class Headlines extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.makeApiCall()
-  }
-
   makeApiCall = () => {
     fetch(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.REACT_APP_API_KEY}`)
       .then(response => response.json())
@@ -30,6 +26,10 @@ class Headlines extends React.Component {
             error
           });
         });
+  }
+
+  componentDidMount() {
+    this.makeApiCall()
   }
 
   render() {
